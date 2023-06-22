@@ -20,6 +20,7 @@ const App = () => {
       setLoading(false);
       setNextPageUrl(res.data.next);
       setPrevPageUrl(res.data.previous);
+      console.log(res.data);
       setPokemon(res.data.results.map((p) => p.name));
     });
   }, [currentPageUrl]);
