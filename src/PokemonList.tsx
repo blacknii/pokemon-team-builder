@@ -8,7 +8,10 @@ const PokemonList: React.FC<PokemonListProps> = ({ pokemon }) => {
   return (
     <div className={styles[""]}>
       {pokemon.map((p) => (
-        <p key={p}>{p}</p>
+        <div key={p.name + "div"}>
+          <p key={p.name + "name"}>{p.name}</p>
+          <img key={p.name + "img"} src={p.image} />
+        </div>
       ))}
     </div>
   );

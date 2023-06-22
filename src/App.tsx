@@ -8,11 +8,17 @@ type PokemonData = {
   count: number;
   next: string | null;
   previous: string | null;
-  results: { name: string }[];
+  results: { name: string; url: string }[];
+};
+
+type PokemonDetails = {
+  name: string;
+  image: string;
+  types: string[];
 };
 
 const App: React.FC = () => {
-  const [pokemon, setPokemon] = useState<string[]>([]);
+  const [pokemon, setPokemon] = useState<PokemonDetails[]>([]);
   const [currentPageUrl, setCurrentPageUrl] = useState<string>(
     "https://pokeapi.co/api/v2/pokemon"
   );
@@ -27,7 +33,16 @@ const App: React.FC = () => {
       setLoading(false);
       setNextPageUrl(res.data.next);
       setPrevPageUrl(res.data.previous);
-      setPokemon(res.data.results.map((p) => p.name));
+
+      const promises = res.data.results.map((p) =>
+        axios.get(p.url).then((res) => ({
+          name: p.name,
+          image: res.data.sprites.front_default,
+          types: res.data.types.map((t: any) => t.type.name),
+        }))
+      );
+
+      Promise.all(promises).then((pokemon) => setPokemon(pokemon));
     });
   }, [currentPageUrl]);
 
@@ -42,6 +57,8 @@ const App: React.FC = () => {
       setCurrentPageUrl(prevPageUrl);
     }
   };
+
+  console.log(pokemon);
 
   if (loading) return <p>Loading...</p>;
 
