@@ -1,6 +1,10 @@
 import styles from "./PokemonList.module.css";
 
-const PokemonList = ({ pokemon }) => {
+interface PokemonListProps {
+  pokemon: string[];
+}
+
+const PokemonList: React.FC<PokemonListProps> = ({ pokemon }) => {
   return (
     <div className={styles[""]}>
       {pokemon.map((p) => (
