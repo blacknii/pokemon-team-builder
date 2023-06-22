@@ -1,0 +1,15 @@
+.container {
+  background-color: #333333;
+  border-radius: 4px;
+  width: 8rem;
+  cursor: pointer;
+  /* padding: 0.3rem; */
+}
+
+.container:hover {
+  background-color: #3b3b3b;
+}
+
+p {
+  margin-top: 1rem;
+}

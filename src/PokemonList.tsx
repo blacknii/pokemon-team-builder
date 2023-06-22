@@ -1,3 +1,4 @@
+import PokemonCart from "./PokemonCart";
 import styles from "./PokemonList.module.css";
 
 interface PokemonListProps {
@@ -6,12 +7,9 @@ interface PokemonListProps {
 
 const PokemonList: React.FC<PokemonListProps> = ({ pokemon }) => {
   return (
-    <div className={styles[""]}>
+    <div className={styles["container"]}>
       {pokemon.map((p) => (
-        <div key={p.name + "div"}>
-          <p key={p.name + "name"}>{p.name}</p>
-          <img key={p.name + "img"} src={p.image} />
-        </div>
+        <PokemonCart key={p.name} image={p.image} name={p.name} />
       ))}
     </div>
   );
