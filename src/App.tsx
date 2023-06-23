@@ -43,7 +43,7 @@ const App: React.FC = () => {
   const [pokemon, setPokemon] = useState<PokemonDetails[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
-  usePokemonData(1);
+  usePokemonData(3);
 
   // useEffect(() => {
   //   setLoading(true);
