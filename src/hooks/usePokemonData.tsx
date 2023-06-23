@@ -5,6 +5,14 @@ export function usePokemonData(search) {
   const [pokemon, setPokemon] = useState({});
 
   //I need [evolution, version]
+  const evolution = (data) => {
+    console.log("Test");
+    // pokePath =
+    console.log(data.evolves_to[0].evolves_to.length);
+    // do {
+
+    // } while(data.evolves_to.length)
+  };
 
   useEffect(() => {
     if (search) {
@@ -22,7 +30,8 @@ export function usePokemonData(search) {
             ["generation"]: res.data.generation.name,
           }));
           axios.get(evolutionChain).then((res) => {
-            console.log(res.data.chain.evolves_to);
+            evolution(res.data.chain.evolves_to[0]);
+            // console.log(res.data.chain.evolves_to);
             setPokemon((prevState) => ({
               ...prevState,
             }));
