@@ -1,15 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export function usePokemonData(search) {
-  const [pokemon, setPokemon] = useState({});
+export function usePokedexData(search) {
+  const [pokedex, setPokedex] = useState({});
 
   useEffect(() => {
     if (search) {
       axios
-        .get("https://pokeapi.co/api/v2/pokemon-species/" + search)
+        .get("https://pokeapi.co/api/v2/pokedex-species/" + search)
         .then((res) => {
-          setPokemon((prevState) => ({
+          setPokedex((prevState) => ({
             ...prevState,
             ["name"]: res.data.name,
             ["is_legendary"]: res.data.is_legendary,
@@ -19,15 +19,7 @@ export function usePokemonData(search) {
             ["image"]: res.data.generation.name,
           }));
         });
-      axios.get("https://pokeapi.co/api/v2/pokemon/" + search).then((res) => {
-        setPokemon((prevState) => ({
-          ...prevState,
-          ["types"]: res.data.types.map((t) => t.type.name),
-          ["image"]: res.data.sprites.front_default,
-        }));
-      });
-    }
   }, [search]);
 
-  return pokemon;
+  return pokedex;
 }
