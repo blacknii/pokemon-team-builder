@@ -1,25 +1,22 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-export function usePokedexData(search) {
-  const [pokedex, setPokedex] = useState({});
+const usePokedexData = (url: string[]) => {
+  const [pokemonData, setPokemonData] = useState<number[]>([]);
 
   useEffect(() => {
-    if (search) {
-      axios
-        .get("https://pokeapi.co/api/v2/pokedex-species/" + search)
-        .then((res) => {
-          setPokedex((prevState) => ({
-            ...prevState,
-            ["name"]: res.data.name,
-            ["is_legendary"]: res.data.is_legendary,
-            ["is_mythical"]: res.data.is_mythical,
-            ["color"]: res.data.color.name,
-            ["generation"]: res.data.generation.name,
-            ["image"]: res.data.generation.name,
-          }));
-        });
-  }, [search]);
+    console.log(url);
+    if (url) {
+      let data;
+      axios.get(url).then((res) => {
+        setPokemonData(
+          res.data.pokemon_entries.map((pok) => pok.pokemon_species.url)
+        );
+      });
+    }
+  }, [url]);
 
-  return pokedex;
-}
+  return pokemonData;
+};
+
+export default usePokedexData;
