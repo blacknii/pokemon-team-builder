@@ -59,6 +59,10 @@ const pokemonGameGroups = [
     pokedexes: [
       {
         name: "Sinnoh Pokédex",
+        URL: "https://pokeapi.co/api/v2/pokedex/5/",
+      },
+      {
+        name: "Extended Pokédex",
         URL: "https://pokeapi.co/api/v2/pokedex/6/",
       },
     ],
@@ -70,8 +74,8 @@ const pokemonGameGroups = [
     },
     pokedexes: [
       {
-        name: "Original Johto",
-        URL: "https://pokeapi.co/api/v2/pokedex/3/",
+        name: "Updated Johto",
+        URL: "https://pokeapi.co/api/v2/pokedex/7/",
       },
     ],
   },
@@ -82,8 +86,8 @@ const pokemonGameGroups = [
     },
     pokedexes: [
       {
-        name: "Original Johto",
-        URL: "https://pokeapi.co/api/v2/pokedex/3/",
+        name: "Original Unova",
+        URL: "https://pokeapi.co/api/v2/pokedex/8/",
       },
     ],
   },
@@ -94,7 +98,7 @@ const pokemonGameGroups = [
     },
     pokedexes: [
       {
-        name: "Original Johto",
+        name: "Updated Unova",
         URL: "https://pokeapi.co/api/v2/pokedex/3/",
       },
     ],
@@ -106,8 +110,16 @@ const pokemonGameGroups = [
     },
     pokedexes: [
       {
-        name: "Original Johto",
-        URL: "https://pokeapi.co/api/v2/pokedex/3/",
+        name: "Kalos Central",
+        URL: "https://pokeapi.co/api/v2/pokedex/12/",
+      },
+      {
+        name: "Kalos Coastal",
+        URL: "https://pokeapi.co/api/v2/pokedex/13/",
+      },
+      {
+        name: "Kalos Mountain",
+        URL: "https://pokeapi.co/api/v2/pokedex/14/",
       },
     ],
   },
@@ -119,8 +131,8 @@ const pokemonGameGroups = [
     },
     pokedexes: [
       {
-        name: "Original Johto",
-        URL: "https://pokeapi.co/api/v2/pokedex/3/",
+        name: "Updated Hoenn",
+        URL: "https://pokeapi.co/api/v2/pokedex/15/",
       },
     ],
   },
@@ -131,8 +143,24 @@ const pokemonGameGroups = [
     },
     pokedexes: [
       {
-        name: "Original Johto",
-        URL: "https://pokeapi.co/api/v2/pokedex/3/",
+        name: "Original Alola",
+        URL: "https://pokeapi.co/api/v2/pokedex/16/",
+      },
+      {
+        name: "Original Melemele",
+        URL: "https://pokeapi.co/api/v2/pokedex/17/",
+      },
+      {
+        name: "Original Akala",
+        URL: "https://pokeapi.co/api/v2/pokedex/18/",
+      },
+      {
+        name: "Original Ulaula",
+        URL: "https://pokeapi.co/api/v2/pokedex/19/",
+      },
+      {
+        name: "Original Poni",
+        URL: "https://pokeapi.co/api/v2/pokedex/20/",
       },
     ],
   },
@@ -143,8 +171,24 @@ const pokemonGameGroups = [
     },
     pokedexes: [
       {
-        name: "Original Johto",
-        URL: "https://pokeapi.co/api/v2/pokedex/3/",
+        name: "Updated Alola",
+        URL: "https://pokeapi.co/api/v2/pokedex/21/",
+      },
+      {
+        name: "Updated Melemele",
+        URL: "https://pokeapi.co/api/v2/pokedex/22/",
+      },
+      {
+        name: "Updated Akala",
+        URL: "https://pokeapi.co/api/v2/pokedex/23/",
+      },
+      {
+        name: "Updated Ulaula",
+        URL: "https://pokeapi.co/api/v2/pokedex/24/",
+      },
+      {
+        name: "Updated Poni",
+        URL: "https://pokeapi.co/api/v2/pokedex/25/",
       },
     ],
   },
@@ -156,8 +200,8 @@ const pokemonGameGroups = [
     },
     pokedexes: [
       {
-        name: "Original Johto",
-        URL: "https://pokeapi.co/api/v2/pokedex/3/",
+        name: "Let's Go Kanto",
+        URL: "https://pokeapi.co/api/v2/pokedex/26/",
       },
     ],
   },
@@ -170,8 +214,16 @@ const pokemonGameGroups = [
     },
     pokedexes: [
       {
-        name: "Original Johto",
-        URL: "https://pokeapi.co/api/v2/pokedex/3/",
+        name: "Galar",
+        URL: "https://pokeapi.co/api/v2/pokedex/27/",
+      },
+      {
+        name: "Isle of armor",
+        URL: "https://pokeapi.co/api/v2/pokedex/28/",
+      },
+      {
+        name: "Crown tundra",
+        URL: "https://pokeapi.co/api/v2/pokedex/29/",
       },
     ],
   },
@@ -183,8 +235,8 @@ const pokemonGameGroups = [
     },
     pokedexes: [
       {
-        name: "Original Johto",
-        URL: "https://pokeapi.co/api/v2/pokedex/3/",
+        name: "Sinnoh",
+        URL: "https://pokeapi.co/api/v2/pokedex/4/",
       },
     ],
   },
@@ -195,22 +247,30 @@ const pokemonGameGroups = [
     },
     pokedexes: [
       {
-        name: "Original Johto",
-        URL: "https://pokeapi.co/api/v2/pokedex/3/",
+        name: "Hisui",
+        URL: "https://pokeapi.co/api/v2/pokedex/30/",
       },
     ],
   },
   {
     name: "scarlet-violet, the-teal-mask, the-indigo-disk",
     games: {
-      "scarlet-violet": "https://pokeapi.co/api/v2/version-group/3/",
-      "the-teal-mask": "https://pokeapi.co/api/v2/version-group/3/",
-      "the-indigo-disk": "https://pokeapi.co/api/v2/version-group/3/",
+      "scarlet-violet": "https://pokeapi.co/api/v2/version-group/25/",
+      "the-teal-mask": "https://pokeapi.co/api/v2/version-group/26/",
+      "the-indigo-disk": "https://pokeapi.co/api/v2/version-group/27/",
     },
     pokedexes: [
       {
-        name: "Original Johto",
-        URL: "https://pokeapi.co/api/v2/pokedex/3/",
+        name: "Paldea",
+        URL: "https://pokeapi.co/api/v2/pokedex/31/",
+      },
+      {
+        name: "Teal Mask",
+        URL: "https://pokeapi.co/api/v2/pokedex/32/",
+      },
+      {
+        name: "Indigo Disk",
+        URL: "https://pokeapi.co/api/v2/pokedex/33/",
       },
     ],
   },

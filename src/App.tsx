@@ -31,7 +31,7 @@ const App: React.FC = () => {
       <div>
         <p>{name}</p>
       </div>
-      <div>
+      <div className="App">
         {test.map((t) => {
           // return <p>{t.name}</p>;
           return <PokemonCart name={t.name} image={t.img} />;
