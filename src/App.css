@@ -8,6 +8,20 @@
   padding: 3rem;
 }
 
+.games {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.game {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 button {
   width: 15rem;
   padding: 1rem;
