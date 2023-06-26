@@ -15,6 +15,7 @@ const usePokedexData = (urlList) => {
             const pokeList = await axios.get(game.URL);
             console.log("Loop Start");
             for (const pok of pokeList.data.pokemon_entries) {
+              console.log(pok.pokemon_species);
               const pokInfo = await axios.get(pok.pokemon_species.url);
               const pokMoreInfo = await axios.get(
                 "https://pokeapi.co/api/v2/pokemon/" + pokInfo.data.id
