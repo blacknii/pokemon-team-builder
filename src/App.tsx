@@ -10,7 +10,7 @@ const App: React.FC = () => {
 
   const test = usePokedexData(urlList);
 
-  console.log(test);
+  console.log("test ret", test);
 
   const testDex = (gameGroup) => {
     setUrlList(gameGroup.pokedexes);
@@ -31,23 +31,23 @@ const App: React.FC = () => {
         ))}
       </div>
       <div className="game">
-        {/* {test.map((test) => {
+        {test.map((test) => {
           return (
-            <>
+            <div key={test.name}>
               <div>
                 <p>{test.name}</p>
               </div>
               <div className="App">
-                {test.pokedex.map((t) => {
+                {test.pokemon.map((t) => {
                   // return <p>{t.name}</p>;
                   return (
                     <PokemonCart key={t.name} name={t.name} image={t.img} />
                   );
                 })}
               </div>
-            </>
+            </div>
           );
-        })} */}
+        })}
       </div>
     </div>
   );
