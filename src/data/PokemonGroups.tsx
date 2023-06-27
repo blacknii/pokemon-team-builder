@@ -9,6 +9,7 @@ const pokemonGameGroups = [
       {
         name: "Kanto Pokédex",
         URL: "https://pokeapi.co/api/v2/pokedex/2/",
+        pokemon: [],
       },
     ],
   },

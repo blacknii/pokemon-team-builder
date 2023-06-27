@@ -1,16 +1,15 @@
 import "./App.css";
-import pokemonGameGroups from "./data/PokemonGroups";
-import { useState, useEffect } from "react";
-import usePokedexData from "./hooks/usePokedexData";
+import { useState } from "react";
+import usePokemonData from "./hooks/usePokemonData";
 import PokemonCart from "./components/PokemonCart";
 
 const App: React.FC = () => {
-  const [pokeList, setPokeList] = useState([]);
-  const [urlList, setUrlList] = useState([]);
+  const [index, setIndex] = useState(0);
+  const [pokemonMaxAmount, setPokemonMaxAmount] = useState(40);
 
-  const test = usePokedexData(urlList);
+  // const test = usePokedexData(urlList);
 
-  console.log("test ret", test);
+  const pokedex = usePokemonData(index, pokemonMaxAmount);
 
   const testDex = (gameGroup) => {
     setUrlList(gameGroup.pokedexes);
@@ -18,36 +17,21 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <div className="games">
-        {pokemonGameGroups.map((gameGroup) => (
-          <button
-            key={gameGroup.name}
-            onClick={() => {
-              testDex(gameGroup);
-            }}
-          >
-            {gameGroup.name}
-          </button>
-        ))}
-      </div>
+      <h1>Pokedex</h1>
       <div className="game">
-        {test.map((test) => {
+        {pokedex.map((pokemon) => {
           return (
-            <div key={test.name}>
-              <div>
-                <p>{test.name}</p>
-              </div>
-              <div className="App">
-                {test.pokemon.map((t) => {
-                  // return <p>{t.name}</p>;
-                  return (
-                    <PokemonCart key={t.name} name={t.name} image={t.img} />
-                  );
-                })}
-              </div>
-            </div>
+            <PokemonCart
+              key={pokemon.name}
+              name={pokemon.name}
+              image={pokemon.img}
+            />
           );
         })}
+      </div>
+      <div className="game">
+        <button onClick={() => setIndex(index - 1)}>previous</button>
+        <button onClick={() => setIndex(index + 1)}>next</button>
       </div>
     </div>
   );
