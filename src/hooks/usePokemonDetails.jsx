@@ -42,7 +42,7 @@ export function usePokemonDetails(isActive, name, img) {
           details["flavor_text"] =
             pokemonSpeciesResponse.data.flavor_text_entries
               .find((entry) => entry.language.name === "en")
-              .flavor_text.replace(/(\r\n|\n|\r)/gm, " ");
+              .flavor_text.replace(/(\r\n|\n|\r|\f)/gm, " ");
           details["generation"] = pokemonSpeciesResponse.data.generation.name;
           details["habitat"] = pokemonSpeciesResponse.data.habitat.name;
           console.log(details);
@@ -55,7 +55,7 @@ export function usePokemonDetails(isActive, name, img) {
     console.log(pokemonDetails);
 
     fetchPokemonDetails();
-  }, [name, img, pokemonDetails]);
+  }, [isActive, name, img, pokemonDetails]);
 
   return pokemonDetails;
 }
