@@ -1,38 +1,27 @@
-import "./App.css";
+import styles from "./App.module.css";
 import { useState } from "react";
 import usePokemonData from "./hooks/usePokemonData";
-import PokemonCart from "./components/PokemonCart";
+import PokemonList from "./components/PokemonList";
+import PokemonPagination from "./components/PokemonPagination";
 
 const App: React.FC = () => {
   const [index, setIndex] = useState(0);
-  const [pokemonMaxAmount, setPokemonMaxAmount] = useState(40);
+  const [pokemonMaxAmount, setPokemonMaxAmount] = useState(20);
 
-  // const test = usePokedexData(urlList);
+  const nextPage = () => {
+    setIndex(index + 1);
+  };
+  const prevPage = () => {
+    setIndex(index - 1);
+  };
 
   const pokedex = usePokemonData(index, pokemonMaxAmount);
 
-  const testDex = (gameGroup) => {
-    setUrlList(gameGroup.pokedexes);
-  };
-
   return (
-    <div className="App">
+    <div className={styles.App}>
       <h1>Pokedex</h1>
-      <div className="game">
-        {pokedex.map((pokemon) => {
-          return (
-            <PokemonCart
-              key={pokemon.name}
-              name={pokemon.name}
-              image={pokemon.img}
-            />
-          );
-        })}
-      </div>
-      <div className="game">
-        <button onClick={() => setIndex(index - 1)}>previous</button>
-        <button onClick={() => setIndex(index + 1)}>next</button>
-      </div>
+      <PokemonPagination nextPage={nextPage} prevPage={prevPage} />
+      <PokemonList pokemon={pokedex} />
     </div>
   );
 };

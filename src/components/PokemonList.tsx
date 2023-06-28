@@ -9,7 +9,7 @@ const PokemonList: React.FC<PokemonListProps> = ({ pokemon }) => {
   return (
     <div className={styles["container"]}>
       {pokemon.map((p) => (
-        <PokemonCart key={p.name} image={p.image} name={p.name} />
+        <PokemonCart key={p.name} image={p.img} name={p.name} />
       ))}
     </div>
   );
