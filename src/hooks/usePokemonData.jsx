@@ -31,6 +31,7 @@ export function usePokemonData(index, range) {
 
     fetchPokemons();
   }, [index, range]);
+  console.log(pokedex);
 
   return pokedex;
 }

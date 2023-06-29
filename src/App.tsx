@@ -1,6 +1,7 @@
 import styles from "./App.module.css";
 import { useState } from "react";
 import usePokemonData from "./hooks/usePokemonData";
+import APItest from "./components/APITest.jsx";
 import PokemonList from "./components/PokemonList";
 import PokemonPagination from "./components/PokemonPagination";
 
@@ -11,6 +12,7 @@ const App: React.FC = () => {
   const nextPage = () => {
     setIndex(index + 1);
   };
+
   const prevPage = () => {
     setIndex(index - 1);
   };
@@ -20,6 +22,7 @@ const App: React.FC = () => {
   return (
     <div className={styles.App}>
       <h1>Pokedex</h1>
+      <APItest />
       <PokemonPagination nextPage={nextPage} prevPage={prevPage} />
       <PokemonList pokemon={pokedex} />
     </div>

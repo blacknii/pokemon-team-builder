@@ -45,14 +45,14 @@ export function usePokemonDetails(isActive, name, img) {
               .flavor_text.replace(/(\r\n|\n|\r|\f)/gm, " ");
           details["generation"] = pokemonSpeciesResponse.data.generation.name;
           details["habitat"] = pokemonSpeciesResponse.data.habitat.name;
-          console.log(details);
+          // console.log(details);
           setPokemonDetails(details);
         }
       } catch (error) {
         console.error(`ERROR: ${error}`);
       }
     };
-    console.log(pokemonDetails);
+    // console.log(pokemonDetails);
 
     fetchPokemonDetails();
   }, [isActive, name, img, pokemonDetails]);
