@@ -14,3 +14,7 @@
 p {
   margin-top: 1rem;
 }
+
+.container img {
+  max-width: 96px;
+}

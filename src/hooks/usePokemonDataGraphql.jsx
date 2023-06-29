@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
-function APITest() {
-  const [data, setData] = useState(null);
+export function usePokemonDataGraphql(index, range) {
+  const [pokedex, setpokedex] = useState([]);
+
   const isFilterActive = false;
   const start = 400;
   const end = 600;
-  const types = ["water", "ice"];
+  const types = [];
 
-  const typeQuery = (type) => `              {
+  const typeQuery = (type) => `{
     pokemon_v2_pokemontypes: {
       pokemon_v2_type: { name: { _eq: "${type}" } }
     }
@@ -28,8 +29,8 @@ function APITest() {
               ${types.map((type) => typeQuery(type))}
             ]
           }
-          limit: 20
-          offset: 1
+          limit: ${range}
+          offset: ${index * range}
         ) {
           id
           name
@@ -48,31 +49,30 @@ function APITest() {
         "https://beta.pokeapi.co/graphql/v1beta",
         { query }
       );
-      setData(response.data.data);
+
+      console.log(
+        response.data.data.pokemon_v2_pokemon.map((data) => {
+          data[
+            "img"
+          ] = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${data.id}.png`;
+          return data;
+        })
+      );
+      setpokedex(
+        response.data.data.pokemon_v2_pokemon.map((data) => {
+          data[
+            "img"
+          ] = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${data.id}.png`;
+          return data;
+        })
+      );
     };
 
     fetchData();
-  }, []);
+  }, [index, range]);
+  console.log(pokedex);
 
-  return (
-    <div>
-      <h1>Fetch Data from GraphQL API</h1>
-      {data && (
-        <ul>
-          {data.pokemon_v2_pokemon.map((pokemon) => (
-            <li key={pokemon.id}>
-              <p>{pokemon.name}</p>
-              <p>{pokemon.id}</p>
-              <img
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`}
-              />
-              <p>{console.log(pokemon)}</p>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
+  return pokedex;
 }
 
-export default APITest;
+export default usePokemonDataGraphql;
