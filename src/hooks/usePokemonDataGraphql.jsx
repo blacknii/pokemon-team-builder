@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export function usePokemonDataGraphql(index, range) {
+export function usePokemonDataGraphql(index, range, start, end, types) {
   const [pokedex, setpokedex] = useState([]);
 
-  const isFilterActive = false;
-  const start = 400;
-  const end = 600;
-  const types = [];
+  const isFilterActive = true;
+
+  console.log(types);
 
   const typeQuery = (type) => `{
     pokemon_v2_pokemontypes: {
@@ -61,7 +60,7 @@ export function usePokemonDataGraphql(index, range) {
     };
 
     fetchData();
-  }, [index, range]);
+  }, [index, range, start, end, types]);
 
   return pokedex;
 }

@@ -2,84 +2,94 @@ import styles from "./PokemonTypes.module.css";
 
 const pokemonTypes = [
   {
-    name: "Normal",
+    name: "all",
+    color: "Crimson",
+  },
+  {
+    name: "normal",
     color: "lightgray",
   },
   {
-    name: "Fire",
+    name: "fire",
     color: "red",
   },
   {
-    name: "Water",
+    name: "water",
     color: "blue",
   },
   {
-    name: "Electric",
+    name: "electric",
     color: "yellow",
   },
   {
-    name: "Grass",
+    name: "grass",
     color: "green",
   },
   {
-    name: "Ice",
+    name: "ice",
     color: "lightblue",
   },
   {
-    name: "Fighting",
+    name: "fighting",
     color: "brown",
   },
   {
-    name: "Poison",
+    name: "poison",
     color: "purple",
   },
   {
-    name: "Ground",
+    name: "ground",
     color: "brown",
   },
   {
-    name: "Flying",
+    name: "flying",
     color: "skyblue",
   },
   {
-    name: "Psychic",
+    name: "psychic",
     color: "pink",
   },
   {
-    name: "Bug",
+    name: "bug",
     color: "lightgreen",
   },
   {
-    name: "Rock",
+    name: "rock",
     color: "brown",
   },
   {
-    name: "Ghost",
+    name: "ghost",
     color: "purple",
   },
   {
-    name: "Dragon",
+    name: "dragon",
     color: "darkblue",
   },
   {
-    name: "Dark",
+    name: "dark",
     color: "black",
   },
   {
-    name: "Steel",
+    name: "steel",
     color: "gray",
   },
   {
-    name: "Fairy",
+    name: "fairy",
     color: "pink",
   },
 ];
 
-function PokemonTypes() {
+function PokemonTypes({ typeHandler }) {
   return (
-    <div className={styles[""]}>
+    <div className={styles.container}>
       {pokemonTypes.map((type) => (
-        <button key={type.name} style={{ backgroundColor: type.color }}>
+        <button
+          onClick={() => {
+            typeHandler(type.name);
+          }}
+          key={type.name}
+          style={{ backgroundColor: type.color }}
+        >
           {type.name}
         </button>
       ))}

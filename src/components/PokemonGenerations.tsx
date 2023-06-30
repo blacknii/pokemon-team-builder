@@ -2,6 +2,11 @@ import styles from "./PokemonGenerations.module.css";
 
 const pokemonGenerations = [
   {
+    name: "all generations",
+    start: 1,
+    end: 898,
+  },
+  {
     name: "generationI",
     start: 1,
     end: 151,
@@ -43,11 +48,18 @@ const pokemonGenerations = [
   },
 ];
 
-function PokemonGenerations() {
+function PokemonGenerations({ generationHandler }) {
   return (
-    <div className={styles[""]}>
+    <div className={styles.container}>
       {pokemonGenerations.map((generation) => (
-        <button key={generation.name}>{generation.name}</button>
+        <button
+          onClick={() => {
+            generationHandler(generation.start, generation.end);
+          }}
+          key={generation.name}
+        >
+          {generation.name}
+        </button>
       ))}
     </div>
   );
