@@ -50,14 +50,6 @@ export function usePokemonDataGraphql(index, range) {
         { query }
       );
 
-      console.log(
-        response.data.data.pokemon_v2_pokemon.map((data) => {
-          data[
-            "img"
-          ] = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${data.id}.png`;
-          return data;
-        })
-      );
       setpokedex(
         response.data.data.pokemon_v2_pokemon.map((data) => {
           data[
@@ -70,7 +62,6 @@ export function usePokemonDataGraphql(index, range) {
 
     fetchData();
   }, [index, range]);
-  console.log(pokedex);
 
   return pokedex;
 }
