@@ -9,7 +9,7 @@ export function usePokemonDetails(isActive, name, img) {
     abilities: "N/A",
     height: "N/A",
     id: "N/A",
-    types: "N/A",
+    types: ["N/A"],
     weight: "N/A",
     color: "N/A",
     flavor_text: "N/A",

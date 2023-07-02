@@ -15,6 +15,21 @@ p {
   margin-top: 1rem;
 }
 
-.container img {
+.image-box {
+  display: flex;
+  justify-content: center;
+}
+
+.image {
   max-width: 96px;
+}
+
+.image-modal {
+  max-width: 300px;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
 }
