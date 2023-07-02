@@ -23,3 +23,22 @@
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
 }
+
+.image-box {
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  max-width: 96px;
+}
+
+.image-modal {
+  max-width: 300px;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}

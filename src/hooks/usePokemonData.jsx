@@ -23,7 +23,7 @@ export function usePokemonData(index, range) {
           });
         }
 
-        setpokedex(pokemonArr);
+        setpokedex([...pokemonArr]);
       } catch (error) {
         console.error(`ERROR: ${error}`);
       }
